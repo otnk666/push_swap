@@ -1,0 +1,15 @@
+
+NAME	= push_swap
+SRCS	= 
+
+OBJS	= $ (SRCS:.c=.o)
+CC	= cc
+CFLG	= #-Wall -Wextra -Werror -g
+
+LIBFT_PATH	= ./libft
+LIBFT_NAME	= libft.a
+
+FT_PRINTF_PATH	= ./ft_printf
+FT_PRINTF_NAME	= libftprintf.a
+
+

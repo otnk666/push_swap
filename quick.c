@@ -1,49 +1,38 @@
-#include <stdio.h>
+#include "push_swap.h"
+#include "../libft/libft.h"
 
-void swap (int *x, int *y)
+void	push_all_to_b(t_list **stack_a, t_list **stack_b)
 {
-	int temp;
-	temp = *x;
-	*x = *y;
-	*y = temp;
+	while(ft_lstsize(*stack_a) > 0)
+		ft_command(stack_a, stack_b, "pb");
 }
 
-int partition (int array[], int left, int right)
+void	push_all_to_a(t_list **stack_a, t_list **stack_b)
 {
+	while(ft_lstsize(*stack_b) > 0)
+		ft_command(stack_a, stack_b, "pa");
+}
+
+int quick_sort(t_list **stack_a, t_list **stack_b)
+{
+	t_list *current;
+	int pivot;
+	int size;
 	int i;
-	int j;
-	int pivot;
 
-	i = left;
-	j = right + 1;
-	pivot = left;
+	current = (*stack_a)->next;
+	pivot = current->content;
+	size = ft_lstsize(stack_a);
 
-	while(i < j)
+	while(i < size)
 	{
-		while(array[i] < array[pivot])
-			i++
-		while(array[pivot] < array[j]);
-			j++;
-		if (i < j) 
-			swap(&array[i], &array[j]);
+		if (current->content < pivot)
+			ft_command(stack_a, stack_b, "pb");
+		else
+			ft_command(stack_a, stack_b, "ra");
+		i++;
 	}
-	swap(&array[pivot], &array[j]);
-	
-	return j;
-}
-	
-	do { i++; } while (array[i] < array[pivot]);
-	do { j--; } while (array[pivot] < array[j]);
+	quick_sort(stack_a,stack_b);
+	push_all_to_a(stack_a, stack_b);
 }
 
-void quick_sort (int array[], int left, int right)
-{
-
-	int pivot;
-	if (left < right)
-	{
-		pivot = partittion(array, left, right);
-		quick_sort(array, left, pivot-1);
-		quick_sort(array, pivot+1, right);
-	}
-}
