@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 17:10:03 by skomatsu          #+#    #+#             */
+/*   Updated: 2025/02/04 20:00:48 by skomatsu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void sort_three(t_list **stack)
@@ -70,6 +82,8 @@ void sort(t_list **stack_a, t_list **stack_b)
         sort_3(stack_a);
     else if(size <= 5)
         sort_five(stack_a,stack_b);
+    else
+        quick_sort(stack_a, stack_b);
 
 }
 
