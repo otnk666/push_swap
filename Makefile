@@ -1,13 +1,27 @@
-NAME	= push_swap
-SRCS	= main.c \
-		sort.c \
-		command.c \
-		quick_sort.c \
-		error_checker.c
+NAME	=	push_swap
 
+SRCS_DIR	=	./srcs
+CMD_DIR		= $(SRCS_DIR)/ft_command
+SORT_DIR	= $(SRCS_DIR)/ft_sort
+STACK_DIR	= $(SRCS_DIR)/ft_stack
+
+MAIN_SRCS	=	$(SRCS_DIR)/main.c \
+				$(SRCS_DIR)/die.c \
+
+CMD_SRCS	=	$(CMD_DIR)/command.c
+
+SORT_SRCS	=	$(SORT_DIR)/sort.c \
+				$(SORT_DIR)/quick_sort.c
+
+STACK_SRCS	=	$(STACK_DIR)/ft_stackadd_front.c \
+				$(STACK_DIR)/ft_stackadd_back.c \
+				$(STACK_DIR)/ft_stacknew.c \
+				$(STACK_DIR)/ft_stacksize.c \
+
+SRCS	= $(MAIN_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS)
 OBJS	= $(SRCS:.c=.o)
 CC	= cc
-CFLG	= -Wall -Wextra -Werror -g
+CFLG	= -Wall -Wextra -Werror -g -I./includes -fsanitize=address
 RM	= rm -f
 
 INCLUDES	= -I./includes -I $(LIBFT_PATH) -I $(FT_PRINTF_PATH)

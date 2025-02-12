@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/04 19:58:55 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:50:19 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,55 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void    ft_command(t_list **stack_a, t_list **stack_b, char *line);
-void    create_sentinel(t_list **stack);
 
-void    sa(t_list **stack_a);
-void    sb(t_list **stack_b);
-void    ss(t_list **stack_a, t_list **stack_b);
-void    pa(t_list **stack_a, t_list **stack_b);
-void    pb(t_list **stack_a, t_list **stack_b);
-void    ra(t_list **stack_a);
-void    rb(t_list **stack_b);
-void    rr(t_list **stack_a, t_list **stack_b);
-void    rra(t_list **stack_a);
-void    rrb(t_list **stack_b);
-void    rrr(t_list **stack_a, t_list **stack_b);
+typedef struct s_stack
+{
+    int content;
+    struct s_stack *next;
+    struct s_stack *prev;
+}       t_stack;
 
-void    sort(t_list **stack_a, t_list **stack_b);
-void    sort_three(t_list **stack);
-void    sort_five(t_list **stack_a, t_list **stack_b);
-void    quick_sort(t_list **stack_a, t_list **stack_b);
 
-int     ft_lstsize(t_list *lst);
-t_list  *ft_stack_min(t_list **stack);
-int     ft_stack_min_count(t_list **stack, t_list *min);
-void    push_min(t_list **stack_a, t_list **stack_b, t_list *min);
+void        ft_command(t_stack **stack_a, t_stack **stack_b, char *line);
+void        create_sentinel(t_stack **stack);
+void        addstack(t_stack **stack, int argc, char *argv[]);
+void        ft_free_stack(t_stack **stack);
+t_stack     *ft_stacknew(int content);
+void        ft_stackadd_back(t_stack **stack, t_stack *new);
+void        ft_stackadd_front(t_stack **stack, t_stack *new);
+void        die(char *cause);
 
-int     stack_error(t_list *node);
+
+
+void    swap(t_stack **stack);
+void    push(t_stack **stack_to, t_stack **stack_from);
+void    rotate(t_stack **stack);
+void    re_rotate(t_stack **stack);
+void    sa(t_stack **stack_a);
+void    sb(t_stack **stack_b);
+void    ss(t_stack **stack_a, t_stack **stack_b);
+void    pa(t_stack **stack_a, t_stack **stack_b);
+void    pb(t_stack **stack_a, t_stack **stack_b);
+void    ra(t_stack **stack_a);
+void    rb(t_stack **stack_b);
+void    rr(t_stack **stack_a, t_stack **stack_b);
+void    rra(t_stack **stack_a);
+void    rrb(t_stack **stack_b);
+void    rrr(t_stack **stack_a, t_stack **stack_b);
+
+void    sort(t_stack **stack_a, t_stack **stack_b);
+void    sort_three(t_stack **stack);
+void    sort_five(t_stack **stack_a, t_stack **stack_b);
+void    quick_sort_a(t_stack **stack_a, t_stack **stack_b);
+void    quick_sort_b(t_stack **stack_a, t_stack **stack_b);
+int     ft_is_sorted_AO(t_stack *stack);
+int     ft_is_sorted_DO(t_stack *stack);
+
+int     ft_stacksize(t_stack *lst);
+t_stack  *ft_stack_min(t_stack **stack);
+int     ft_stack_min_count(t_stack **stack);
+void    ft_push_min(t_stack **stack_a, t_stack **stack_b, t_stack *min);
+
+int     stack_error(t_stack *node);
 
 #endif
