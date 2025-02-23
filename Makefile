@@ -4,6 +4,7 @@ SRCS_DIR	=	./srcs
 CMD_DIR		= $(SRCS_DIR)/ft_command
 SORT_DIR	= $(SRCS_DIR)/ft_sort
 STACK_DIR	= $(SRCS_DIR)/ft_stack
+FINDM_DIR	= $(SRCS_DIR)/ft_findmed
 
 MAIN_SRCS	=	$(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/die.c \
@@ -18,7 +19,9 @@ STACK_SRCS	=	$(STACK_DIR)/ft_stackadd_front.c \
 				$(STACK_DIR)/ft_stacknew.c \
 				$(STACK_DIR)/ft_stacksize.c \
 
-SRCS	= $(MAIN_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS)
+FINDM_SRCS	=	$(FINDM_DIR)/ft_findmed.c \
+
+SRCS	= $(MAIN_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS) $(FINDM_SRCS)
 OBJS	= $(SRCS:.c=.o)
 CC	= cc
 CFLG	= -Wall -Wextra -Werror -g -I./includes -fsanitize=address
