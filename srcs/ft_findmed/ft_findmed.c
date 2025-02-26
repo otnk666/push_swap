@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:52:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/19 01:04:42 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:36:15 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int ft_findmed(t_stack **stack)
     else if(size == 1)
         return((*stack)->next->content);
     array = ft_stack_to_array(*stack, size);
+    if (!array) // メモリ割り当て失敗チェック
+        return((*stack)->next->content); // 何か安全な値を返す
     medium = ft_quickselect_arr(array, 0, size - 1, size/2);
     free(array);
 
