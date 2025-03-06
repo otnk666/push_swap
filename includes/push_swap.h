@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/17 23:00:09 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/04 20:11:04 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,23 @@ void    sort_three_b(t_stack **stack_b);
 void    sort_five(t_stack **stack_a, t_stack **stack_b);
 void    quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot, int min_index);
 int     half_partation(t_stack **src, t_stack **dst, int pivot, int min_pivot);
-void    sort_partation(t_stack **src, t_stack **dst, int pivot);
+int     sort_partation(t_stack **src, t_stack **dst, int pivot);
 
 int     ft_is_sorted_AO(t_stack *stack);
 int     ft_is_sorted_DO(t_stack *stack);
 void     ft_addsort(t_stack **stack_a, t_stack **stack_b);
 
 int     ft_stacksize(t_stack *lst);
+int     ft_nosorted_size(t_stack *stack, int last_sorted);
 t_stack  *ft_stack_min(t_stack **stack);
 int     ft_stack_min_count(t_stack **stack);
 void    ft_push_min(t_stack **stack_a, t_stack **stack_b, t_stack *min);
 
 int     stack_error(t_stack *node);
-int     ft_findmed(t_stack **stack);
+int     ft_findmed(t_stack **stack, int min_pivot);
 int     *quickselect_arr(int *array, int left, int right, int k);
 int     ft_partition_arr(int *array, int left, int right);
-int     *ft_stack_to_array(t_stack *stack, int size);
+int     *ft_stack_to_array(t_stack *stack, int sizem, int min_pivot);
 
 
 #endif

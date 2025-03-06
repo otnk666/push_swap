@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:27:24 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/10 16:59:49 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:44:47 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ void re_rotate(t_stack **stack)
     t_stack *first;
     t_stack *last;
 
-    if(!*stack || !*stack || !((*stack)->next))
+    if(!stack || !*stack || !((*stack)->next))
         return;
         
     first = (*stack)->next;

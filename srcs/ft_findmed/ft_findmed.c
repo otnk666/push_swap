@@ -6,15 +6,15 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:52:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/27 02:36:15 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/05 05:09:47 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 #include "../libft/libft.h"
 
-int ft_partiton_arr(int *array, int left, int right)
+
+int ft_partition_arr(int *array, int left, int right)
 {
     int pivot;
     int i;
@@ -24,9 +24,9 @@ int ft_partiton_arr(int *array, int left, int right)
     pivot = array[right];
     i = left - 1;
     j = left;
-    while(j < right)
+    while (j < right)
     {
-        if(array[j] < pivot)
+        if (array[j] < pivot)
         {
             i++;
             tmp = array[i];
@@ -38,64 +38,68 @@ int ft_partiton_arr(int *array, int left, int right)
     tmp = array[i + 1];
     array[i + 1] = array[right];
     array[right] = tmp;
-    return(i + 1);
+    return (i + 1);
 }
 
 int ft_quickselect_arr(int *array, int left, int right, int k)
 {
     int pivot;
-    pivot = ft_partiton_arr(array, left, right);
-    if(pivot == k)
-        return(array[pivot]);
+    pivot = ft_partition_arr(array, left, right);
+    if (pivot == k)
+        return (array[pivot]);
     else if (pivot < k)
-        return(ft_quickselect_arr(array, pivot + 1, right, k));
+        return (ft_quickselect_arr(array, pivot + 1, right, k));
     else
-        return(ft_quickselect_arr(array, left, pivot - 1, k));
+        return (ft_quickselect_arr(array, left, pivot - 1, k));
 }
 
-
-int *ft_stack_to_array(t_stack *stack, int size)
+int *ft_stack_to_array(t_stack *stack, int size, int min_pivot)
 {
-    if(size <= 1)
-        return(NULL);
+    if (size <= 0 || !stack || !stack->next)
+        return (NULL);
+    
     int i;
     int *array;
-    array = (int *)malloc(sizeof(int) * (size + 1));
+    array = (int *)malloc(sizeof(int) * size);
     if (!array)
-        return(NULL);
+        return (NULL);
     
-    t_stack *current;
-
+    t_stack *current = stack->next; // ダミーノードをスキップ
     i = 0;
-    current = stack->next;
-    while(current != stack)
+    while (current != stack)
     {
-        array[i] = current->content;
+        if (current->content > min_pivot)
+        {
+            array[i] = current->content;
+            i++;
+        }
         current = current->next;
-        i++;
     }
-    return(array);
+    return (array);
 }
 
-
-int ft_findmed(t_stack **stack)
+int ft_findmed(t_stack **stack, int min_pivot)
 {
-    int size;
-    int *array;
-    int medium;
-
-
-    size = ft_stacksize(*stack);
-    if(size == 0)
-        return(0);
-    else if(size == 1)
-        return((*stack)->next->content);
-    array = ft_stack_to_array(*stack, size);
-    if (!array) // メモリ割り当て失敗チェック
-        return((*stack)->next->content); // 何か安全な値を返す
-    medium = ft_quickselect_arr(array, 0, size - 1, size/2);
+    if (!*stack || !(*stack)->next)
+        return (0);
+    
+    int size = 0;
+    t_stack *current = (*stack)->next; // ダミーノードをスキップ
+    while (current != *stack)
+    {
+        if(current->content > min_pivot)
+            size++;
+        current = current->next;
+    }
+    
+    if (size == 0)
+        return (min_pivot);
+    
+    int *array = ft_stack_to_array(*stack, size, min_pivot); // Changed: pass *stack instead of stack
+    if (!array)
+        return (0);
+    
+    int median = ft_quickselect_arr(array, 0, size - 1, size / 2);
     free(array);
-
-    return(medium);
-
+    return (median);
 }

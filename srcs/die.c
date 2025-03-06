@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:07:57 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/10 15:24:48 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:36:49 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void die(char *cause)
 {
-    ft_printf("%s/n", cause);
+    ft_printf("%s\n", cause);
     exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:10:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/19 03:27:15 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/03 21:44:16 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void sort_three_a(t_stack **stack_a)
     int a;
     int b;
     int c;
-    
-    a = (*stack_a)->next->content;    
+
+    a = (*stack_a)->next->content;
     b = (*stack_a)->next->next->content;
     c = (*stack_a)->prev->content;
 
@@ -138,7 +138,7 @@ void sort(t_stack **stack_a, t_stack **stack_b)
 {
     int size;
     size = ft_stacksize(*stack_a);
-    int pivot = ft_findmed(stack_a);
+    int pivot = ft_findmed(stack_a, 0);
 
     if(size <= 3)
         sort_three_a(stack_a);
