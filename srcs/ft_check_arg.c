@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:18:12 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/06 15:17:13 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:59:25 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ int ft_check_digit(int argc, char *argv[])
     i = 1;
     while (i < (size_t)argc)
     {
-        if (argv[i][0] != '-' && !(ft_isdigit(av[i][0])))
-            return (false);
+        if (argv[i][0] != '-' && !(ft_isdigit(argv[i][0])))
+            return (0);
         j = 1;
-        while (av[i][j] != '\0')
+        while (argv[i][j] != '\0')
         {
-            if (!(ft_isdigit(av[i][j++])))
-                return (false);
+            if (!(ft_isdigit(argv[i][j++])))
+                return (0);
         }
-        if (!ft_check_int(av[i]))
-            return (false);
+        if (!ft_check_int(argv[i]))
+            return (0);
         i++;
     }
     return (1);
@@ -46,16 +46,16 @@ int ft_check_digit(int argc, char *argv[])
 
 int ft_check_arg(int argc, char *argv[])
 {
-    if (arc <= 0)
+    if (argc <= 0)
         return (0);
-    if (arc == 1)
+    if (argc == 1)
         exit (0);
     if (!ft_check_digit(argc, argv))
         return (0);
     return (1);
 }
 
-ft_check_dup(t_stack *stack)
+int ft_check_dup(t_stack *stack)
 {
     t_stack *current;
     t_stack *check;
