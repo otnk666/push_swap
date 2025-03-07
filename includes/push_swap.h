@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/04 20:11:04 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:04:02 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,13 @@ int     ft_findmed(t_stack **stack, int min_pivot);
 int     *quickselect_arr(int *array, int left, int right, int k);
 int     ft_partition_arr(int *array, int left, int right);
 int     *ft_stack_to_array(t_stack *stack, int sizem, int min_pivot);
+
+int    ft_check_int(const char *str);
+int    ft_check_digit(int argc, char *argv[]);
+int    ft_check_arg(int argc, char *argv[]);
+int    ft_check_dup(t_stack *stack);
+int    ft_sorted_size(t_stack *stack);
+int    init_stack(t_stack **stack_a, t_stack **stack_b, int argc, char *argv[]);
 
 
 #endif

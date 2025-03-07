@@ -8,7 +8,10 @@ FINDM_DIR	= $(SRCS_DIR)/ft_findmed
 
 MAIN_SRCS	=	$(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/die.c \
-
+				$(SRCS_DIR)/ft_check_arg.c \
+				$(SRCS_DIR)/ft_check_sort.c \
+				$(SRCS_DIR)/init_stack.c \
+				
 CMD_SRCS	=	$(CMD_DIR)/command.c
 
 SORT_SRCS	=	$(SORT_DIR)/sort.c \
