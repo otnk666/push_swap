@@ -6,24 +6,12 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/08 07:14:39 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/08 09:15:46 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/libft.h"
-
-
-
-void push_all_to_b(t_stack **stack_a, t_stack **stack_b) {
-    while (ft_stacksize(*stack_a) > 0)
-        pb(stack_a, stack_b);
-}
-
-void push_all_to_a(t_stack **stack_a, t_stack **stack_b) {
-    while (ft_stacksize(*stack_b) > 0)
-        pa(stack_a, stack_b);
-}
 
 void quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot, int min_index)
 {                               
@@ -92,6 +80,7 @@ int sort_partation(t_stack **src, t_stack **dst, int pivot)
 	if(dst == NULL || *dst == NULL || (*dst)->next == *dst)
 		return(0);
     int push_count = 0;
+    int next = 0;
 	int size = ft_stacksize(*dst);
 
 	int i = 0;
@@ -106,8 +95,11 @@ int sort_partation(t_stack **src, t_stack **dst, int pivot)
 			    push_count++;
 		    }
 		    else
-			    rb(dst);
-		    i++;
+            {
+                next = ft_find_greater(*dst, pivot);
+			    ft_optimal_rotate(dst, next, 'b');
+		    }
+            i++;
 	    }
     }
 

@@ -15,7 +15,8 @@ MAIN_SRCS	=	$(SRCS_DIR)/main.c \
 CMD_SRCS	=	$(CMD_DIR)/command.c
 
 SORT_SRCS	=	$(SORT_DIR)/sort.c \
-				$(SORT_DIR)/quick_sort.c
+				$(SORT_DIR)/quick_sort.c \
+				$(SORT_DIR)/rotate_utils.c \
 
 STACK_SRCS	=	$(STACK_DIR)/ft_stackadd_front.c \
 				$(STACK_DIR)/ft_stackadd_back.c \

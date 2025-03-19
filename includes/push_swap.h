@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/07 16:04:02 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/08 08:44:27 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,10 @@ int     sort_partation(t_stack **src, t_stack **dst, int pivot);
 
 int     ft_is_sorted_AO(t_stack *stack);
 int     ft_is_sorted_DO(t_stack *stack);
-void     ft_addsort(t_stack **stack_a, t_stack **stack_b);
+void    ft_addsort(t_stack **stack_a, t_stack **stack_b);
 
 int     ft_stacksize(t_stack *lst);
-int     ft_nosorted_size(t_stack *stack, int last_sorted);
-t_stack  *ft_stack_min(t_stack **stack);
+t_stack *ft_stack_min(t_stack **stack);
 int     ft_stack_min_count(t_stack **stack);
 void    ft_push_min(t_stack **stack_a, t_stack **stack_b, t_stack *min);
 
@@ -86,5 +85,9 @@ int    ft_check_dup(t_stack *stack);
 int    ft_sorted_size(t_stack *stack);
 int    init_stack(t_stack **stack_a, t_stack **stack_b, int argc, char *argv[]);
 
+
+int    ft_rotate_dir(t_stack *stack, int target);
+void   ft_optimal_rotate(t_stack **stack, int target, char stack_id);
+int    ft_find_greater(t_stack *stack, int target);
 
 #endif

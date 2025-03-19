@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:10:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/03 21:44:16 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/08 08:34:33 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ void sort_three_b(t_stack **stack_b)
     size = ft_stacksize(*stack_b);
     if (size <= 1 || (size == 2 && a < b))
         return;
-    
-
     if(ft_stacksize(*stack_b) == 2 && a > b)
         sb(stack_b);
     if(a > b && b < c && a < c)

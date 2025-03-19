@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:36:27 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/06 15:15:53 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:09:55 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "push_swap.h"
 #include "../libft/libft.h"
 
-void	create_sentinel(t_stack **stack)
+void    create_sentinel(t_stack **stack)
 {
     t_stack *sentinel;
     sentinel = ft_stacknew(0);
@@ -62,14 +62,14 @@ void ft_free_stack(t_stack **stack)
     *stack = NULL;
 }
 
-int init_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+int init_stack(t_stack **stack_a, t_stack **stack_b, int argc, char *argv[])
 {
-    create_sentinel(&stack_a);
-    create_sentinel(&stack_b);
+    create_sentinel(stack_a);
+    create_sentinel(stack_b);
     if (!stack_a || !stack_b)
-        return (1);
-    addstack(&stack_a, argc, argv);
-    if (ft_check_dup(stack_a))
-        return (1);
-    return (0);
+        return (0);
+    addstack(stack_a, argc, argv);
+    if (!ft_check_dup(*stack_a))
+        return (0);
+    return (1);
 }
