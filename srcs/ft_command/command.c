@@ -6,12 +6,11 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:27:24 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/02 11:44:47 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:39:10 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/libft.h"
 
 void ft_command(t_stack **stack_a, t_stack **stack_b, char *line)
 {

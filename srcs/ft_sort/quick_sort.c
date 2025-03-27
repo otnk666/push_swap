@@ -6,12 +6,11 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/08 09:15:46 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:38:56 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/libft.h"
 
 void quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot, int min_index)
 {                               

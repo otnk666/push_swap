@@ -6,12 +6,11 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:18:12 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/07 15:59:25 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:38:27 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/libft.h"
 
 int ft_check_int(const char *str)
 {

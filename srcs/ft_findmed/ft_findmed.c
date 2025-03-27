@@ -6,13 +6,11 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:52:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/05 05:09:47 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:39:02 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/libft.h"
-
 
 int ft_partition_arr(int *array, int left, int right)
 {

@@ -6,13 +6,12 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:36:27 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/07 17:09:55 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:38:16 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
-#include "../libft/libft.h"
 
 void    create_sentinel(t_stack **stack)
 {
