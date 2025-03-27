@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:10:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/08 08:34:33 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 21:11:59 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,9 @@ t_stack	*ft_stack_min(t_stack **stack)
 	t_stack	*current;
 
     if (!stack || !(*stack) || !(*stack)->next)
+    {
         return (NULL);
+    }    
 
 	min = (*stack) -> next;
 	current = (*stack) -> next -> next;

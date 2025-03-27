@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/27 20:38:56 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 21:06:23 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 void quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot, int min_index)
 {                               
-    // 既にソート済みなら終了
     if(ft_stacksize(*stack_b) == 0 && ft_is_sorted_AO(*stack_a))
         return;
-    
-    // スタックAが空か要素が1つだけなら終了条件を追加
     if(ft_stacksize(*stack_a) <= 1)
         return;
-    
-
     int pivot_a = half_partation(stack_a, stack_b, half_pivot, min_index);
     int pivot_b = 0;
     int next_min = min_index;
@@ -34,7 +29,6 @@ void quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot, int min_in
         next_min = sort_partation(stack_a, stack_b, pivot_b);
     }
 
-    // In this code, the maximum value is not sorted when half_pivot and min_index are equal
     if (size_before != ft_stacksize(*stack_a) && !ft_is_sorted_AO(*stack_a))
         quick_sort(stack_a, stack_b, pivot_a, next_min);
 }
