@@ -12,24 +12,24 @@
 
 #include "push_swap.h"
 
-void    ft_stackadd_back(t_stack **stack, t_stack *new)
+void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-    t_stack *last;
+	t_stack	*last;
 
-    if (!stack || !new)
-        return ;
-    if (*stack)
-    {
-        last = (*stack)->prev;
-        last->next = new;
-        new->prev = last;
-        new->next = *stack;
-        (*stack)->prev = new;
-    }
-    else
-    {
-        *stack = new;
-        new->next = new;
-        new->prev = new;
-    }
+	if (!stack || !new)
+		return ;
+	if (*stack)
+	{
+		last = (*stack)->prev;
+		last->next = new;
+		new->prev = last;
+		new->next = *stack;
+		(*stack)->prev = new;
+	}
+	else
+	{
+		*stack = new;
+		new->next = new;
+		new->prev = new;
+	}
 }

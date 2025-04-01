@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-t_stack    *ft_stacknew(int content)
+t_stack	*ft_stacknew(int content)
 {
-    t_stack	*new;
+	t_stack	*new;
 
-    new = malloc(sizeof(t_stack));
-    if (!new)
-        return (NULL);
-    new->content = content;
-    new->next = new;
-    new->prev = new;
-    return (new);
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = new;
+	new->prev = new;
+	return (new);
 }

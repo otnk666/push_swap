@@ -12,8 +12,8 @@
 
 #include "push_swap.h"
 
-void die(char *cause)
+void	die(char *cause)
 {
-    ft_printf("%s\n", cause);
-    exit(EXIT_FAILURE);
+	ft_printf("%s\n", cause);
+	exit(EXIT_FAILURE);
 }

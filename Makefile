@@ -41,7 +41,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(MAKE) -C $(LIBFT_PATH)
-	@$(CC) $(CFLG) -o $(NAME) $(OBJS) -L$(LIBFT_PATH) -lft -L$(FT_PRINTF_PATH) -lftprintf
+	@$(CC) $(CFLG) -o $(NAME) $(OBJS) -L$(LIBFT_PATH) -lft
 
 %.o: %.c
 	@$(CC) $(CFLG) $(INCLUDES) -c $< -o $@

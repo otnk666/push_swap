@@ -12,37 +12,37 @@
 
 #include "push_swap.h"
 
-int ft_stacksize(t_stack *stack)
+int	ft_stacksize(t_stack *stack)
 {
-    int count;
-    
-    count = 0;
-    if (!stack)
-        return (0);
-    t_stack *current;
-    current = stack->next;
-    while (current != stack)
-    {
-        count ++;
-        current = current->next;
-    }    
-    return (count);
+	int		count;
+	t_stack	*current;
+
+	count = 0;
+	if (!stack)
+		return (0);
+	current = stack->next;
+	while (current != stack)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
 }
 
-int ft_nosorted_size(t_stack *stack, int last_sorted)
+int	ft_nosorted_size(t_stack *stack, int last_sorted)
 {
-    int count;
+	int count;
 
-    count = 0;
-    if (!stack)
-        return (0);
-    t_stack *current;
-    current = stack->next;
-    while (current != stack)
-    {
-        if(current->content > last_sorted)
-            count ++;
-        current = current->next;
-    }
-    return (count);
+	count = 0;
+	if (!stack)
+		return (0);
+	t_stack *current;
+	current = stack->next;
+	while (current != stack)
+	{
+		if (current->content > last_sorted)
+			count++;
+		current = current->next;
+	}
+	return (count);
 }
