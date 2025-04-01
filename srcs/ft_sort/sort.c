@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:10:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/27 21:11:59 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:24:11 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,10 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 
 	size = ft_stacksize(*stack_a);
 	pivot = ft_findmed(stack_a, 0);
-	if (size <= 3)
+	
+	if (size == 1)
+		return;
+	else if (size <= 3)
 		sort_three_a(stack_a);
 	else if (size <= 5)
 		sort_five(stack_a, stack_b);

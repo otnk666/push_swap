@@ -1,17 +1,51 @@
 {
-        "version": "0.2.0",
-        "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Push Swap",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/push_swap",
+      "args": [
+        "2",
+        "1",
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [
         {
-            "name": "Debug Push Swap",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/push_swap",
-            "args": ["19", "13", "11", "17", "9", "2", "4", "18", "5", "14", "7", "16", "8", "1", "6", "12", "20", "10", "3", "15"]  ,
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb"
+          "name": "ASAN_OPTIONS",
+          "value": "detect_leaks=0"
         }
-        ]
+      ],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/home/skomatsu/42cursus/hub/push_swap/srcs/ft_sort",
+      "program": "/home/skomatsu/42cursus/hub/push_swap/srcs/ft_sort/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
 }

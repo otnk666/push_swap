@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/27 20:37:21 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:23:56 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void    rrb(t_stack **stack_b);
 void    rrr(t_stack **stack_a, t_stack **stack_b);
 
 void    sort(t_stack **stack_a, t_stack **stack_b);
+
 void    sort_three_a(t_stack **stack_a);
 void    sort_three_b(t_stack **stack_b);
 void    sort_five(t_stack **stack_a, t_stack **stack_b);

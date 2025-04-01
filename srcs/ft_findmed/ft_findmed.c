@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:52:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/27 20:39:02 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/01 20:14:12 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	*ft_stack_to_array(t_stack *stack, int size, int min_pivot)
 	array = (int *)malloc(sizeof(int) * size);
 	if (!array)
 		return (NULL);
-	t_stack *current = stack->next; // ダミーノードをスキップ
+	t_stack *current = stack->next;
 	i = 0;
 	while (current != stack)
 	{
@@ -84,7 +84,7 @@ int	ft_findmed(t_stack **stack, int min_pivot)
 	if (!*stack || !(*stack)->next)
 		return (0);
 	size = 0;
-	t_stack *current = (*stack)->next; // ダミーノードをスキップ
+	t_stack *current = (*stack)->next;
 	while (current != *stack)
 	{
 		if (current->content > min_pivot)
@@ -94,7 +94,6 @@ int	ft_findmed(t_stack **stack, int min_pivot)
 	if (size == 0)
 		return (min_pivot);
 	int *array = ft_stack_to_array(*stack, size, min_pivot);
-		// Changed: pass *stack instead of stack
 	if (!array)
 		return (0);
 	median = ft_quickselect_arr(array, 0, size - 1, size / 2);
