@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:18:12 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/30 11:40:52 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:15:41 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	ft_check_int(const char *str)
 	return (INT_MIN <= num && num <= INT_MAX);
 }
 
-int	ft_check_digit(int argc, char *argv[])
+int	ft_check_digit(int argc, char *argv[], int offset)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 1;
+	i = offset;
 	while (i < (size_t)argc)
 	{
 		if (argv[i][0] != '-' && !(ft_isdigit(argv[i][0])))
@@ -49,7 +49,9 @@ int	ft_check_arg(int argc, char *argv[])
 		return (0);
 	if (argc == 1)
 		exit(0);
-	if (!ft_check_digit(argc, argv))
+	if (argc == 2)
+		return (1);
+	if (!ft_check_digit(argc, argv, 1))
 		return (0);
 	return (1);
 }

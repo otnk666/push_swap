@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/01 19:23:56 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:10:16 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 
 void        ft_command(t_stack **stack_a, t_stack **stack_b, char *line);
 void        create_sentinel(t_stack **stack);
-void        addstack(t_stack **stack, int argc, char *argv[]);
+void        addstack(t_stack **stack, int count, char *argv[], int offset);
 void        ft_free_stack(t_stack **stack);
 t_stack     *ft_stacknew(int content);
 void        ft_stackadd_back(t_stack **stack, t_stack *new);
@@ -80,12 +80,14 @@ int     ft_partition_arr(int *array, int left, int right);
 int     *ft_stack_to_array(t_stack *stack, int sizem, int min_pivot);
 
 int    ft_check_int(const char *str);
-int    ft_check_digit(int argc, char *argv[]);
+int    ft_check_digit(int argc, char *argv[], int offset);
 int    ft_check_arg(int argc, char *argv[]);
+int    ft_sting_init(t_stack **stack_a,char *argv);
 int    ft_check_dup(t_stack *stack);
 int    ft_sorted_size(t_stack *stack);
 int    init_stack(t_stack **stack_a, t_stack **stack_b, int argc, char *argv[]);
-
+int    ft_string_init(t_stack **stack_a, char *argv[]);
+void   free_string_args(char **str);
 
 int    ft_rotate_dir(t_stack *stack, int target);
 void   ft_optimal_rotate(t_stack **stack, int target, char stack_id);
