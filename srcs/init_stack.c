@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:36:27 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/02 16:10:44 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:25:53 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ int	ft_string_init(t_stack **stack_a, char *argv[])
 	
 }
 
-void free_string_args(char **str)
+void	free_string_args(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

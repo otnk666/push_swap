@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:10:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/01 19:24:11 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:17:24 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 
 void	sort_three_b(t_stack **stack_b)
 {
-	int	size;
 	int	a;
 	int	b;
 	int	c;
@@ -65,25 +64,18 @@ void	sort_three_b(t_stack **stack_b)
 	a = (*stack_b)->next->content;
 	b = (*stack_b)->next->next->content;
 	c = (*stack_b)->prev->content;
-	size = ft_stacksize(*stack_b);
-	if (size <= 1 || (size == 2 && a < b))
+	if (ft_stacksize(*stack_b) <= 1 || (ft_stacksize(*stack_b) == 2 && a < b))
 		return ;
 	if (ft_stacksize(*stack_b) == 2 && a > b)
 		sb(stack_b);
 	if (a > b && b < c && a < c)
 		sb(stack_b);
 	else if (a > b && b > c && a > c)
-	{
-		sb(stack_b);
-		rrb(stack_b);
-	}
+		(sb(stack_b), rrb(stack_b));
 	else if (a > b && b < c && a > c)
 		rb(stack_b);
 	else if (a < b && b > c && a < c)
-	{
-		sb(stack_b);
-		rb(stack_b);
-	}
+		(sb(stack_b), rb(stack_b));
 	else if (a < b && b > c && a > c)
 		rrb(stack_b);
 }
@@ -138,9 +130,8 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 
 	size = ft_stacksize(*stack_a);
 	pivot = ft_findmed(stack_a, 0);
-	
 	if (size == 1)
-		return;
+		return ;
 	else if (size <= 3)
 		sort_three_a(stack_a);
 	else if (size <= 5)

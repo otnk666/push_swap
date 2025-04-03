@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/01 18:56:09 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:22:11 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot,
 	int	next_min;
 	int	size_before;
 
-	if (ft_stacksize(*stack_b) == 0 && ft_is_sorted_AO(*stack_a))
+	if (ft_stacksize(*stack_b) == 0 && ft_is_sorted_ao(*stack_a))
 		return ;
 	if (ft_stacksize(*stack_a) <= 1)
 		return ;
@@ -31,9 +31,9 @@ void	quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot,
 	if (ft_stacksize(*stack_b) > 0)
 	{
 		pivot_b = ft_findmed(stack_b, 0);
-		next_min = sort_partation(stack_a, stack_b, pivot_b);
+		next_min = sort_partation_1(stack_a, stack_b, pivot_b);
 	}
-	if (size_before != ft_stacksize(*stack_a) && !ft_is_sorted_AO(*stack_a))
+	if (size_before != ft_stacksize(*stack_a) && !ft_is_sorted_ao(*stack_a))
 		quick_sort(stack_a, stack_b, pivot_a, next_min);
 }
 
@@ -53,69 +53,51 @@ int	half_partation(t_stack **src, t_stack **dst, int pivot, int min_pivot)
 	while (i < unsorted)
 	{
 		if ((*src)->next->content > min_pivot && (*src)->next->content <= pivot)
-		{
-			pb(src, dst);
-			push_count++;
-		}
+			push_count += pb(src, dst);
 		else
-		{
-			ra(src);
-			rotate_count++;
-		}
+			rotate_count += ra(src);
 		i++;
 	}
 	while (rotate_count > 0)
-	{
-		rra(src);
-		rotate_count--;
-	}
+		rotate_count -= rra(src);
 	return (ft_findmed(src, pivot));
 }
 
-int	sort_partation(t_stack **src, t_stack **dst, int pivot)
+int	sort_partation_1(t_stack **src, t_stack **dst, int pivot)
 {
 	int	push_count;
-	int	next;
 	int	size;
 	int	i;
 
 	if (dst == NULL || *dst == NULL || (*dst)->next == *dst)
 		return (0);
 	push_count = 0;
-	next = 0;
 	size = ft_stacksize(*dst);
 	i = 0;
-	if (size > 3)
+	while (i < size && size > 3)
 	{
-		while (i < size)
-		{
-			if ((*dst)->next->content > pivot)
-			{
-				pa(src, dst);
-				push_count++;
-			}
-			else
-			{
-				next = ft_find_greater(*dst, pivot);
-				ft_optimal_rotate(dst, next, 'b');
-			}
-			i++;
-		}
+		if ((*dst)->next->content > pivot)
+			push_count += pa(src, dst);
+		else
+			rb(dst);
+		i++;
 	}
+	return (sort_partation_2(src, dst, push_count));
+}
+
+int sort_partation_2(t_stack **src, t_stack **dst, int push_count)
+{
 	if (ft_stacksize(*dst) > 3)
-		sort_partation(src, dst, ft_findmed(dst, 0));
+		sort_partation_1(src, dst, ft_findmed(dst, 0));
 	if (ft_stacksize(*dst) && ft_stacksize(*dst) <= 3)
 	{
 		sort_three_b(dst);
 		ft_addsort(src, dst);
 	}
 	while (push_count > 0)
-	{
-		pb(src, dst);
-		push_count--;
-	}
+		push_count -= pb(src, dst);
 	if (ft_stacksize(*dst))
-		sort_partation(src, dst, ft_findmed(dst, 0));
+		sort_partation_1(src, dst, ft_findmed(dst, 0));
 	return ((*src)->prev->content);
 }
 

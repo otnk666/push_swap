@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 18:42:44 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/01 20:12:04 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:22:42 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_sorted_size(t_stack *stack)
 	return (sorted_count);
 }
 
-int	ft_is_sorted_AO(t_stack *stack)
+int	ft_is_sorted_ao(t_stack *stack)
 {
 	t_stack	*current;
 
@@ -62,7 +62,7 @@ int	ft_is_sorted_AO(t_stack *stack)
 	return (1);
 }
 
-int	ft_is_sorted_DO(t_stack *stack)
+int	ft_is_sorted_do(t_stack *stack)
 {
 	t_stack	*current;
 
