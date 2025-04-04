@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:27:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/02 16:18:39 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:43:08 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int	main(int argc, char *argv[])
 	if (!ft_check_arg(argc, argv))
 		die("Error");
 	if (!init_stack(&stack_a, &stack_b, argc, argv))
+	{
+		ft_free_stack(&stack_a);
+		ft_free_stack(&stack_b);
 		die("Error");
+	}
 	sort(&stack_a, &stack_b);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);

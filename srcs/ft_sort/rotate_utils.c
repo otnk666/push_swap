@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 08:13:32 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/08 08:39:49 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:08:01 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	ft_optimal_rotate(t_stack **stack, int target, char stack_id)
 
 int	ft_find_greater(t_stack *stack, int target)
 {
-	t_stack *current;
-	current = stack->next;
+	t_stack	*current;
 
+	current = stack->next;
 	while (current != stack)
 	{
 		if (current->content > target)

@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/03 17:22:11 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:06:52 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	half_partation(t_stack **src, t_stack **dst, int pivot, int min_pivot)
 	int			unsorted;
 
 	rotate_count = 0;
-	size = ft_stacksize(*src), i = 0;
+	size = ft_stacksize(*src);
+	i = 0;
 	unsorted = size - push_count;
 	if (min_pivot >= pivot)
 		return (ft_findmed(src, min_pivot));
@@ -85,7 +86,7 @@ int	sort_partation_1(t_stack **src, t_stack **dst, int pivot)
 	return (sort_partation_2(src, dst, push_count));
 }
 
-int sort_partation_2(t_stack **src, t_stack **dst, int push_count)
+int	sort_partation_2(t_stack **src, t_stack **dst, int push_count)
 {
 	if (ft_stacksize(*dst) > 3)
 		sort_partation_1(src, dst, ft_findmed(dst, 0));

@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 03:17:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/04 20:11:33 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:05:02 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	ft_stacksize(t_stack *stack)
 
 int	ft_nosorted_size(t_stack *stack, int last_sorted)
 {
-	int count;
+	int		count;
+	t_stack	*current;
 
 	count = 0;
 	if (!stack)
 		return (0);
-	t_stack *current;
 	current = stack->next;
 	while (current != stack)
 	{

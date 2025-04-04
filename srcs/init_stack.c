@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:36:27 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/03 17:25:53 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:54:17 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,54 +68,14 @@ int	init_stack(t_stack **stack_a, t_stack **stack_b, int argc, char *argv[])
 		return (0);
 	if (argc == 2)
 	{
-		if (!ft_string_init(stack_a, argv))
-			return (0);	
+		if (!init_strarg(stack_a, argv))
+			return (0);
 	}
-	else 
+	else
 	{
 		addstack(stack_a, argc, argv, 1);
 	}
 	if (!ft_check_dup(*stack_a))
 		return (0);
 	return (1);
-}
-
-int	ft_string_init(t_stack **stack_a, char *argv[])
-{
-	char **split;
-	int	split_count;
-
-	split_count = 0;
-	split = ft_split(argv[1], ' ');
-	if (!split)
-		die ("Error");
-	while (split[split_count])
-		split_count++;
-	if (split_count == 0)
-	{
-		free_string_args(split);
-		return (0);
-	}
-	if (!ft_check_digit(split_count, split, 0))
-	{
-		free_string_args(split);
-		return (0);
-	}
-	addstack(stack_a, split_count, split, 0);
-	free_string_args(split);
-	return (1);
-	
-}
-
-void	free_string_args(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }

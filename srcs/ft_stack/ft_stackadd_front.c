@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 03:05:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/06 03:13:40 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:05:35 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_stackadd_front(t_stack **stack, t_stack *new)
 {
-	t_stack *first;
+	t_stack	*first;
 
 	if (!stack || !new)
 		return ;
