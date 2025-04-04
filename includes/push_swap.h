@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/03 17:21:11 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:52:50 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ typedef struct s_stack
     struct s_stack *prev;
 }       t_stack;
 
-
-void        ft_command(t_stack **stack_a, t_stack **stack_b, char *line);
 void        create_sentinel(t_stack **stack);
 void        addstack(t_stack **stack, int count, char *argv[], int offset);
 void        ft_free_stack(t_stack **stack);
@@ -84,7 +82,7 @@ int    ft_sting_init(t_stack **stack_a,char *argv);
 int    ft_check_dup(t_stack *stack);
 int    ft_sorted_size(t_stack *stack);
 int    init_stack(t_stack **stack_a, t_stack **stack_b, int argc, char *argv[]);
-int    ft_string_init(t_stack **stack_a, char *argv[]);
+int    init_strarg(t_stack **stack_a, char *argv[]);
 void   free_string_args(char **str);
 
 int    ft_rotate_dir(t_stack *stack, int target);
