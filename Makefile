@@ -11,10 +11,15 @@ MAIN_SRCS	=	$(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/ft_check_arg.c \
 				$(SRCS_DIR)/ft_check_sort.c \
 				$(SRCS_DIR)/init_stack.c \
+				$(SRCS_DIR)/init_strarg.c \
 				
-CMD_SRCS	=	$(CMD_DIR)/command.c
+CMD_SRCS	=	$(CMD_DIR)/push.c \
+				$(CMD_DIR)/rotate.c \
+				$(CMD_DIR)/re_rotate.c \
+				$(CMD_DIR)/swap.c \
 
 SORT_SRCS	=	$(SORT_DIR)/sort.c \
+				$(SORT_DIR)/sort_five.c \
 				$(SORT_DIR)/quick_sort.c \
 				$(SORT_DIR)/rotate_utils.c \
 
@@ -28,7 +33,7 @@ FINDM_SRCS	=	$(FINDM_DIR)/ft_findmed.c \
 SRCS	= $(MAIN_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS) $(FINDM_SRCS)
 OBJS	= $(SRCS:.c=.o)
 CC	= cc
-CFLG	= -Wall -Wextra -Werror -g -I./includes -fsanitize=address
+CFLG	= -Wall -Wextra -Werror -I./includes
 RM	= rm -f
 
 INCLUDES	= -I./includes -I $(LIBFT_PATH)/includes
