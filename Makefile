@@ -1,39 +1,42 @@
 NAME	=	push_swap
 
 SRCS_DIR	=	./srcs
+CC	= cc
+CFLG	= -Wall -Wextra -Werror           
+
+INIT_DIR	= $(SRCS_DIR)/ft_initial
 CMD_DIR		= $(SRCS_DIR)/ft_command
 SORT_DIR	= $(SRCS_DIR)/ft_sort
 STACK_DIR	= $(SRCS_DIR)/ft_stack
 FINDM_DIR	= $(SRCS_DIR)/ft_findmed
 
 MAIN_SRCS	=	$(SRCS_DIR)/main.c \
-				$(SRCS_DIR)/die.c \
-				$(SRCS_DIR)/ft_check_arg.c \
-				$(SRCS_DIR)/ft_check_sort.c \
-				$(SRCS_DIR)/init_stack.c \
-				$(SRCS_DIR)/init_strarg.c \
+				$(SRCS_DIR)/die.c
+
+INIT_SRCS	=	$(INIT_DIR)/ft_check_arg.c \
+				$(INIT_DIR)/ft_check_sort.c \
+				$(INIT_DIR)/init_stack.c \
+				$(INIT_DIR)/init_strarg.c
 				
 CMD_SRCS	=	$(CMD_DIR)/push.c \
 				$(CMD_DIR)/rotate.c \
 				$(CMD_DIR)/re_rotate.c \
-				$(CMD_DIR)/swap.c \
+				$(CMD_DIR)/swap.c
 
 SORT_SRCS	=	$(SORT_DIR)/sort.c \
 				$(SORT_DIR)/sort_five.c \
-				$(SORT_DIR)/quick_sort.c \
-				$(SORT_DIR)/rotate_utils.c \
+				$(SORT_DIR)/quick_sort.c
 
 STACK_SRCS	=	$(STACK_DIR)/ft_stackadd_front.c \
 				$(STACK_DIR)/ft_stackadd_back.c \
 				$(STACK_DIR)/ft_stacknew.c \
-				$(STACK_DIR)/ft_stacksize.c \
+				$(STACK_DIR)/ft_stacksize.c
 
-FINDM_SRCS	=	$(FINDM_DIR)/ft_findmed.c \
+FINDM_SRCS	=	$(FINDM_DIR)/ft_findmed.c
 
-SRCS	= $(MAIN_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS) $(FINDM_SRCS)
+SRCS	= $(MAIN_SRCS) $(INIT_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS) $(FINDM_SRCS)
 OBJS	= $(SRCS:.c=.o)
-CC	= cc
-CFLG	= -Wall -Wextra -Werror -I./includes
+
 RM	= rm -f
 
 INCLUDES	= -I./includes -I $(LIBFT_PATH)/includes

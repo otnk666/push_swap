@@ -6,15 +6,15 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:19 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/04 19:04:29 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:56:43 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/includes/ft_printf.h"
-# include "../libft/includes/libft.h"
+# include "ft_printf.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -72,7 +72,6 @@ int					ft_stack_min_count(t_stack **stack);
 void				ft_push_min(t_stack **stack_a, t_stack **stack_b,
 						t_stack *min);
 
-int					stack_error(t_stack *node);
 int					ft_findmed(t_stack **stack, int min_pivot);
 int					*quickselect_arr(int *array, int left, int right, int k);
 int					ft_partition_arr(int *array, int left, int right);
@@ -89,10 +88,5 @@ int					init_stack(t_stack **stack_a, t_stack **stack_b, int argc,
 						char *argv[]);
 int					init_strarg(t_stack **stack_a, char *argv[]);
 void				free_string_args(char **str);
-
-int					ft_rotate_dir(t_stack *stack, int target);
-void				ft_optimal_rotate(t_stack **stack, int target,
-						char stack_id);
-int					ft_find_greater(t_stack *stack, int target);
 
 #endif
