@@ -2,7 +2,7 @@ NAME	=	push_swap
 
 SRCS_DIR	=	./srcs
 CC	= cc
-CFLG	= -Wall -Wextra -Werror           
+CFLG	= -Wall -Wextra -Werror
 
 INIT_DIR	= $(SRCS_DIR)/ft_initial
 CMD_DIR		= $(SRCS_DIR)/ft_command

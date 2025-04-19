@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:52:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/04 17:14:45 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/19 18:24:19 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	*ft_stack_to_array(t_stack *stack, int size, int min_pivot)
 		return (NULL);
 	while (current != stack)
 	{
-		if (current->content > min_pivot)
+		if (current->content > min_pivot || min_pivot == INT_MIN)
 		{
 			array[i] = current->content;
 			i++;

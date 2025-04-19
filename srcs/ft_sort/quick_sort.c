@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:56 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/04 17:06:52 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/19 19:12:08 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	quick_sort(t_stack **stack_a, t_stack **stack_b, int half_pivot,
 	size_before = ft_stacksize(*stack_a);
 	if (ft_stacksize(*stack_b) > 0)
 	{
-		pivot_b = ft_findmed(stack_b, 0);
+		pivot_b = ft_findmed(stack_b, INT_MIN);
 		next_min = sort_partation_1(stack_a, stack_b, pivot_b);
 	}
 	if (size_before != ft_stacksize(*stack_a) && !ft_is_sorted_ao(*stack_a))
@@ -49,7 +49,7 @@ int	half_partation(t_stack **src, t_stack **dst, int pivot, int min_pivot)
 	size = ft_stacksize(*src);
 	i = 0;
 	unsorted = size - push_count;
-	if (min_pivot >= pivot)
+	if (min_pivot >= pivot && min_pivot != INT_MIN)
 		return (ft_findmed(src, min_pivot));
 	while (i < unsorted)
 	{
@@ -89,7 +89,7 @@ int	sort_partation_1(t_stack **src, t_stack **dst, int pivot)
 int	sort_partation_2(t_stack **src, t_stack **dst, int push_count)
 {
 	if (ft_stacksize(*dst) > 3)
-		sort_partation_1(src, dst, ft_findmed(dst, 0));
+		sort_partation_1(src, dst, ft_findmed(dst, INT_MIN));
 	if (ft_stacksize(*dst) && ft_stacksize(*dst) <= 3)
 	{
 		sort_three_b(dst);
@@ -98,7 +98,7 @@ int	sort_partation_2(t_stack **src, t_stack **dst, int push_count)
 	while (push_count > 0)
 		push_count -= pb(src, dst);
 	if (ft_stacksize(*dst))
-		sort_partation_1(src, dst, ft_findmed(dst, 0));
+		sort_partation_1(src, dst, ft_findmed(dst, INT_MIN));
 	return ((*src)->prev->content);
 }
 
