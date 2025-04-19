@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 17:44:38 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/04/04 17:49:05 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/19 19:27:23 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	ft_stack_min_count(t_stack **stack)
 	int		min_index;
 	int		current_count;
 
+	min_index = 1;
 	current = (*stack)->next;
 	min_value = current->content;
 	current_count = 1;
